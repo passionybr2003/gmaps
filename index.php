@@ -31,15 +31,15 @@ if(isset($data['results'][0])){
 
 }
 ?>
-<h2>Generate Geo Location</h2>
+<h2> Geo Location</h2>
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">
-            <input type="text" class="form-control" id="lat" name="address" placeholder="Enter Address">
+            <input type="text" class="form-control" id="lat" name="address" placeholder="Enter Address" value="<?php if(isset($_POST['address'] )){echo $_POST['address'];} ?>">
     </div>
   </div>
    <div class="form-group">
-    <button type="submit" class="btn btn-default" name="submit">Submit</button>
+    <button type="submit" class="btn btn-default" name="submit">Get Lat-Long</button>
   </div>
 </form>
 <?php 
@@ -47,14 +47,17 @@ if(isset($data['results'][0])){
         echo "<h4>Latitude: $lat, Longitude: $long </h4>";
     }
 ?>
-
-<div id="gmap_res">
+<div class="col-sm-12">
+    <div class="col-sm-10"> 
 
 <?php 
-$embedKey="AIzaSyAhSHh9xMIFQoncTnXARzX6jdOSL8Qs5YE";
-$url = "https://www.google.com/maps/embed/v1/place?key=$embedKey&q=".$lat.",".$long;
+    $embedKey="AIzaSyAhSHh9xMIFQoncTnXARzX6jdOSL8Qs5YE";
+    $url = "https://www.google.com/maps/embed/v1/place?key=$embedKey&q=".$lat.",".$long;
 ?>
-    <iframe style="visibility: none;" src="<?php echo $url?>" width="100%" height="1080px" ></iframe>
-
+<iframe style="visibility: none;" src="<?php echo $url?>"  class="well" width="100%" height="500px"></iframe>
 </div>
+    <div class="col-sm-2">sdf </div>
+    
+</div>
+
 <?php require_once 'common/footer.php'; ?> 

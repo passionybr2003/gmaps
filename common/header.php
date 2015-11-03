@@ -26,12 +26,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">GetLatLong.com</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="reverse-geo-coding.php">Reverse Geo Location</a></li>
+          
+            <!--
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -45,6 +47,10 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            -->
+            
+            
+            
           </ul>
            
         </div><!--/.nav-collapse -->

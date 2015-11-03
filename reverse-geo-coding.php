@@ -29,29 +29,43 @@ if(isset($data['results'][0])){
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">
-            <input type="text" class="form-control" id="lat" name="lat" placeholder="Enter lat" value="<?php if(isset($lat)){echo $lat;} ?>">
+            <input type="text" class="form-control" id="lat" name="lat" placeholder="Enter latitude" value="<?php if(isset($lat)){echo $lat;} ?>">
     </div>
       <div class="col-sm-4">
-            <input type="text" class="form-control" id="long" name="long" placeholder="Enter long" value="<?php if(isset($long)){echo $long;} ?>">
+            <input type="text" class="form-control" id="long" name="long" placeholder="Enter longitude" value="<?php if(isset($long)){echo $long;} ?>">
     </div>
   </div>
    <div class="form-group">
-    <button type="submit" class="btn btn-default" name="submit">Submit</button>
+    <button type="submit" class="btn btn-default" name="submit">Get Address</button>
   </div>
 </form>
 <?php 
-    if(isset($lat) && isset($long)){
-        echo "<h4>Geo Location: $address  </h4>";
+    if(isset($address)){
+        echo "<h4>Address :  $address  </h4>";
     }
 ?>
 
-<div id="gmap_res">
+ 
+
+
+<div class="col-sm-12">
+    <div class="col-sm-10"> 
+
 
 <?php 
 $embedKey="AIzaSyAhSHh9xMIFQoncTnXARzX6jdOSL8Qs5YE";
 $url = "https://www.google.com/maps/embed/v1/place?key=$embedKey&q=".$lat.",".$long;
 ?>
-    <iframe style="visibility: none;" src="<?php echo $url?>" width="100%" height="1080px" ></iframe>
-
+    <iframe style="visibility: none;" src="<?php echo $url?>" class="well" width="100%" height="500px" ></iframe>
 </div>
+    <div class="col-sm-2">sdf </div>
+    
+</div>
+
+
+
+
+
+
+
 <?php require_once 'common/footer.php'; ?> 
