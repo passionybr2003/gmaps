@@ -21,11 +21,9 @@ if(isset($data['results'][0])){
 } else {
     $address = '';
 }
-
-
 }
 ?>
-<h2>Reverse Geo Location</h2>
+<h1>Reverse Geo Location</h1>
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">

@@ -31,7 +31,7 @@ if(isset($data['results'][0])){
 
 }
 ?>
-<h2> Geo Location</h2>
+<h1> Geo Location</h1>
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">
@@ -55,9 +55,28 @@ if(isset($data['results'][0])){
     $url = "https://www.google.com/maps/embed/v1/place?key=$embedKey&q=".$lat.",".$long;
 ?>
 <iframe style="visibility: none;" src="<?php echo $url?>"  class="well" width="100%" height="500px"></iframe>
+
+<div class="desc1">
+    <h3>Latitude</h3>
+    <p>
+        Latitude is a geographic coordinate that defines the angular distance of a place either north or south position of the earth's equator.
+        It is an angle  which ranges from 0&deg; at the Equator to 90&deg; (North or South) at the poles of earth.
+        Latitude is used along with longitude to specify the precise location of address.
+    </p>
+    
+    <h3>Longitude</h3>
+    <p>
+        Longitude is a geographic coordinate that specifies the angular distance of a place east or west position from the Prime Meridian,
+        ranging from 0&deg; at the Prime Meridian to +180&deg; eastward and -180&deg; westward.Usually it is expressed in degrees and minutes.
+        
+    </p>
+</div>
+
 </div>
     <div class="col-sm-2">sdf </div>
     
 </div>
+
+
 
 <?php require_once 'common/footer.php'; ?> 

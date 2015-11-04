@@ -1,17 +1,23 @@
+<?php 
+require_once 'meta_file.php';
+$fileName = basename($_SERVER['SCRIPT_NAME'],'.php');
+$title = $meta_data[$fileName]['title'];
+$description = $meta_data[$fileName]['description'];
+$keywords = $meta_data[$fileName]['keywords'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title><?php echo $title;?></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Geo Location</title>
-
-    <!-- Bootstrap core CSS -->
+    <meta name="description" content=" <?php echo $description;?>" />
+    <meta name="keywords" content=" <?php echo $keywords;?>" />
+    
+    
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
    </head>
 
   <body>

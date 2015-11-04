@@ -1,0 +1,15 @@
+make site logo
+
+meta tags, description --- done
+
+lat long description --- done
+
+add site name in console.google.com->project 
+
+google analytics 
+
+site xml map 
+
+add Degrees minutes functionality
+
+bookmark url which is created by user
