@@ -4,14 +4,12 @@ meta tags, description --- done
 
 lat long description --- done
 
-add site name in console.google.com->project 
-
-google analytics 
+google analytics --- done
 
 site xml map 
 
 add Degrees minutes functionality
 
-bookmark url which is created by user
+ 
 
  
