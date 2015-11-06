@@ -36,8 +36,8 @@ $keywords = $meta_data[$fileName]['keywords'];
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="reverse-geo-coding.php">Reverse Geo Location</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
           
             <!--
             <li><a href="#contact">Contact</a></li>
