@@ -15,8 +15,17 @@
   ga('send', 'pageview');
 
 </script>
+<footer>
+    <div class="container">
+        <div class="text-center"> 
+            <span> &copy 2015 www.geolatlong.com All rights reserved. </span>  <a  href="sitemap.xml">sitemap</a> 
+            
+        </div>
+    </div>
+   
+    
+</footer>
 
-<a href="sitemap.xml">sitemap</a>
 
   </body>
 </html>
