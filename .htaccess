@@ -1,2 +1,4 @@
 RewriteEngine on
-RewriteRule ^(.*)\.html $1\.php
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\.html$ $1.php  [L]
