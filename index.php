@@ -35,7 +35,7 @@ if(isset($data['results'][0])){
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">
-            <input type="text" class="form-control" id="lat" name="address" placeholder="Enter Address" value="<?php if(isset($_POST['address'] )){echo $_POST['address'];} ?>">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" value="<?php if(isset($_POST['address'] )){echo $_POST['address'];} ?>">
     </div>
   </div>
    <div class="form-group">
@@ -80,3 +80,14 @@ if(isset($data['results'][0])){
 
 
 <?php require_once 'common/footer.php'; ?> 
+
+<script type=”text/javascript”
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR0rdlNtJDnNzrshINIG0tUphu9X0XMxc">
+</script>
+<script type=”text/javascript”
+src="https://maps.googleapis.com/maps/api/js?libraries=places">
+</script>
+<script type=”text/javascript”>
+var input = (document.getElementById( "address"));
+var autocomplete = new google.maps.places.Autocomplete(input);
+</script>
