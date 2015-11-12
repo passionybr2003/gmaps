@@ -15,7 +15,10 @@ $keywords = $meta_data[$fileName]['keywords'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=" <?php echo $description;?>" />
     <meta name="keywords" content=" <?php echo $keywords;?>" />
-    
+   
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
    </head>

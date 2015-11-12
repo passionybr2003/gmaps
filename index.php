@@ -81,13 +81,8 @@ if(isset($data['results'][0])){
 
 <?php require_once 'common/footer.php'; ?> 
 
-<script type=”text/javascript”
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR0rdlNtJDnNzrshINIG0tUphu9X0XMxc">
-</script>
-<script type=”text/javascript”
-src="https://maps.googleapis.com/maps/api/js?libraries=places">
-</script>
-<script type=”text/javascript”>
+
+<script type="text/javascript">
 var input = (document.getElementById( "address"));
 var autocomplete = new google.maps.places.Autocomplete(input);
 </script>
