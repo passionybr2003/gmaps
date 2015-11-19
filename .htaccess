@@ -1,4 +1,4 @@
 RewriteEngine on
-RewriteBase /gmaps/
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)\.html$ $1.php  [L]
