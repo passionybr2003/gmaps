@@ -1,4 +1,29 @@
-<?php require_once 'common/header.php'; 
+<?php 
+require 'classes/sitemapgenerator.php';
+$sg = new SitemapGenerator();
+
+ $sitemapData = array(
+                    array('fileName'=>'countries.xml',
+                             'sitemap'=>array(  array('loc'=>'www.geolatlong.com/sitemaps/india.xml'),
+                                                array('loc'=>'www.geolatlong.com/sitemaps/china.xml')
+                                             )
+                    )
+                );
+       
+     $sitemapDataSl = array(
+                    array('fileName'=>'locations.xml',
+                             'url'=>array(  array('loc'=>'www.geolatlong.com/sitemaps/india.html'),
+                                                array('loc'=>'www.geolatlong.com/sitemaps/china.html')
+                                             )
+                    )
+                );   
+//$sg->multiLevelSitemap($sitemapData);
+//$sg->singleLevelSitemap($sitemapDataSl);
+
+
+
+
+require_once 'common/header.php'; 
 $lat = $long = '';
 if(isset($_POST['submit'])){
     
