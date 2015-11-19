@@ -19,9 +19,9 @@ class Commonfuns {
                 define('DB_NAME','gmaps');
         } else {
                 define('DB_HOST','127.0.0.1');
-                define('DB_USER','u808646647_tcode');
-                define('DB_PWD','lamborghini&345');
-                define('DB_NAME','u808646647_tcode');
+                define('DB_USER','u162921388_raghu');
+                define('DB_PWD','Anemone$123$');
+                define('DB_NAME','u162921388_gmaps');
         }
     }
     
