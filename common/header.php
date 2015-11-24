@@ -1,9 +1,13 @@
 <?php 
+require 'classes/common_funs.php';
+$cf = new Commonfuns();
 require_once 'meta_file.php';
 $fileName = basename($_SERVER['SCRIPT_NAME'],'.php');
 $title = $meta_data[$fileName]['title'];
 $description = $meta_data[$fileName]['description'];
 $keywords = $meta_data[$fileName]['keywords'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +30,7 @@ $keywords = $meta_data[$fileName]['keywords'];
   <body>
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -39,9 +43,9 @@ $keywords = $meta_data[$fileName]['keywords'];
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
-          
+            <li class="<?php echo ($fileName == 'index') ? 'active' : '';?>"><a href="index.html">Home</a></li>
+            <li class="<?php echo ($fileName == 'reverse-geo-coding') ? 'active' : '';?>"><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
+            <li class="<?php echo ($fileName == 'pincode') ? 'active' : '';?>"><a href="pincode.html">Pincodes</a></li>
             <!--
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">

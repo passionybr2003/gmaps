@@ -1,14 +1,15 @@
 <?php 
 class Commonfuns {
     public function constants($param){
-        $constants['hostName'] = 'http://localhost/gmaps/';
-        
+        $constants['localhostName'] = 'http://localhost/gmaps/';
+        $constants['serverName'] = 'http://www.geolatlong.com/';
         return $constants[$param];
     }
     
     public function __construct(){
         $this->require_once_files();
         $this->dbparameters();   
+        
     }
     
     public function dbparameters(){
@@ -26,19 +27,22 @@ class Commonfuns {
     }
     
     public function require_once_files(){
-        require 'classes/DbConnect.php';
+        require_once 'classes/DbConnect.php';
+        require_once 'classes/sitemapgenerator.php';
+        require_once 'classes/zipcode.php';
     }
     
     public function sanitize($str){
          $data = trim($str);
          $data = str_replace(" ","-",$data);
-         //$data = $this->real_string($data);
-         //$data = sanitize($data);
+         $data = $this->real_string($data);
+         $data = filter_var($data, FILTER_SANITIZE_STRING);
          return $data;
     }
     
     public function real_string($value){
-	return mysqli::real_escape_string($value);
+        $db = new Dbconnect();
+	return $db->real_string($value);
     }
     
 

@@ -1,7 +1,6 @@
 <?php 
-require 'classes/common_funs.php';
-$cf = new Commonfuns();
 require_once 'common/header.php'; 
+$sg = new SitemapGenerator();
 $lat = $long = '';
 
 if(isset($_POST['submit'])){
@@ -20,7 +19,7 @@ if(isset($_POST['submit'])){
     curl_close($ch);
     $data = json_decode($data,true);
 
-     
+     $serverName = $cf->constants('serverName');
 
     foreach($data['results'][0]['address_components']  as $address){
         if($address['types']['0'] == 'administrative_area_level_1'){
@@ -36,11 +35,35 @@ if(isset($_POST['submit'])){
         }
     }
     
-
     $sanitizeAddress = $cf->sanitize($data['results'][0]['formatted_address']);
-    $url = $cf->constants('hostName').$sanitizeAddress.".html";
+    $url = str_replace(",","",$sanitizeAddress.".html");
 
     $db = new DbConnect();
+    
+    
+    $country = $cf->sanitize(strtolower($country_long_name.".xml"));
+    
+    $countryData = array(
+                    array('fileName'=>'sitemap.xml',
+                             'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$country")
+                                             )
+                    )
+                );
+    $state = $cf->sanitize(strtolower($administrative_area_level_1_long_name.".xml"));
+    $stateData = array(
+                    array('fileName'=>$country,
+                             'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$state")
+                                             )
+                    )
+                );
+                
+    $locationsData = array(
+                    array('fileName'=>$state,
+                             'url'=>array(  array('loc'=>"$serverName"."address/$url")
+                                             )
+                    )
+                );   
+   
     
     $country_id_qry = "SELECT id from countries where title like '%$country_long_name%' ";
     $state_id_qry = "SELECT id from states where title like '%$administrative_area_level_1_long_name%' ";
@@ -57,20 +80,23 @@ if(isset($_POST['submit'])){
     
     
     if($country_id == ''){
-        $country_id = $db->qry_insert($country_qry);
+       $country_res = $db->qry_insert($country_qry);
+       $country_id = $country_res->insert_id;
+       $sg->multiLevelSitemap($countryData);
     } 
     if($state_id == '') {
-        $state_id = $db->qry_insert($states_qry);
+       $state_res = $db->qry_insert($states_qry);
+       $state_id = $state_res->insert_id;
+       $sg->multiLevelSitemap($stateData);
     }
-    
     $sitemap_qry = "INSERT INTO sitemap (country_id,state_id,url) VALUES ($country_id,$state_id,'$url');  ";
     $zipcodes_qry = "INSERT INTO zipcodes (country_id,state_id,zipcode) VALUES ($country_id,$state_id,'$postal_code')";
     
     $url_qry = "SELECT id from sitemap where url like '%$url%' ";
     $url_res = $db->qry_select($url_qry);
-    $db_url_id = $url_res['id'];
-    if($country_id != '' && $state_id != '' && $db_url_id == ''){
+    if($country_id != '' && $state_id != '' && $url_res == ''){
         $db->qry_insert($sitemap_qry);
+        $sg->singleLevelSitemap($locationsData);
     } 
 
     $zipcode_qry = "SELECT id from zipcodes where zipcode like '%$postal_code%' ";
@@ -79,6 +105,8 @@ if(isset($_POST['submit'])){
     if($country_id != '' && $state_id != '' && $db_zipcode_id == ''){
         $db->qry_insert($zipcodes_qry);
     }
+    
+ 
     
     
     
@@ -122,7 +150,7 @@ $url = "https://www.google.com/maps/embed/v1/place?key=$embedKey&q=".$lat.",".$l
 ?>
     <iframe style="visibility: none;" src="<?php echo $url?>" class="well" width="100%" height="500px" ></iframe>
 </div>
-    <div class="col-sm-2">sdf </div>
+    <div class="col-sm-2"> </div>
     
 </div>
 

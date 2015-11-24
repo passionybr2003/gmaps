@@ -1,8 +1,8 @@
 <?php 
-require 'classes/sitemapgenerator.php';
+require_once 'common/header.php'; 
 $sg = new SitemapGenerator();
 
- $sitemapData = array(
+$sitemapData = array(
                     array('fileName'=>'countries.xml',
                              'sitemap'=>array(  array('loc'=>'www.geolatlong.com/sitemaps/india.xml'),
                                                 array('loc'=>'www.geolatlong.com/sitemaps/china.xml')
@@ -21,39 +21,30 @@ $sg = new SitemapGenerator();
 //$sg->singleLevelSitemap($sitemapDataSl);
 
 
-
-
-require_once 'common/header.php'; 
 $lat = $long = '';
 if(isset($_POST['submit'])){
+    $key = "AIzaSyBPZCNBehLrRsLGkbk9KvhXHjIP1l8D3as";
+    $address = urlencode($_POST['address']);
+
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($address)."&key=".$key;
     
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_HEADER,0); //Change this to a 1 to return headers
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-$key = "AIzaSyBPZCNBehLrRsLGkbk9KvhXHjIP1l8D3as";
-$address = urlencode($_POST['address']);
- 
-//If you want an extended data set, change the output to "xml" instead of csv
-$url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=".$key;
-//Set up a CURL request, telling it not to spit back headers, and to throw out a user agent.
-$ch = curl_init();
- 
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_HEADER,0); //Change this to a 1 to return headers
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
- 
-$data = curl_exec($ch);
-curl_close($ch);
-$data = json_decode($data,true);
-//print_r($data);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($data,true);
+    //print_r($data);
 
-if(isset($data['results'][0])){
-    $lat = $data['results'][0]['geometry']['location']['lat'];
-    $long = $data['results'][0]['geometry']['location']['lng'];
-} else {
-    $lat = $long = '0';
-}
-
-
+    if(isset($data['results'][0])){
+        $lat = $data['results'][0]['geometry']['location']['lat'];
+        $long = $data['results'][0]['geometry']['location']['lng'];
+    } else {
+        $lat = $long = '0';
+    }
 }
 ?>
 <h1> Geo Location</h1>
@@ -68,7 +59,7 @@ if(isset($data['results'][0])){
   </div>
 </form>
 <?php 
-    if(isset($lat) && isset($long)){
+    if(isset($lat) && isset($long) && $lat != ''){
         echo "<h4>Latitude: $lat, Longitude: $long </h4>";
     }
 ?>
@@ -98,7 +89,7 @@ if(isset($data['results'][0])){
 </div>
 
 </div>
-    <div class="col-sm-2">sdf </div>
+    <div class="col-sm-2"> </div>
     
 </div>
 

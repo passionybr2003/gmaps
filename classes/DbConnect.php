@@ -42,6 +42,10 @@ class DbConnect {
 		}
 	}
 	
+        public function real_string($value){
+            return $this->con->real_escape_string($value);
+        }
+        
 	public function __destruct(){
 		$this->con->close();
 	}

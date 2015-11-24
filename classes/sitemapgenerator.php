@@ -8,9 +8,7 @@ class SitemapGenerator {
     private $_singleLevelStartTag = 'urlset';
     
     
-    public function sitemapGenerator(){
-         
-    }
+    
     
     public function multiLevelSitemap($sitemapData = array()){
         
@@ -47,7 +45,6 @@ class SitemapGenerator {
             $objDom = new DomDocument( '1.0' );
             $objDom->preserveWhiteSpace = true;
             $objDom->formatOutput = true;
-            
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );
             $objDom->encoding = 'UTF-8';
@@ -72,13 +69,13 @@ class SitemapGenerator {
     public function singleLevelSitemap($sitemapData){
         $objDom = new DomDocument( '1.0' );
         foreach($sitemapData as $fileData){
+            $fileData['fileName'];
             $this->createFiles($fileData['fileName'],$this->_singleLevelStartTag);
             $filePath = $_SERVER['DOCUMENT_ROOT']. "/" . $this->_projectName . $this->_xmlFilesPath . $fileData['fileName'];
             
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );
             $root = $objDom->getElementsByTagName($this->_singleLevelStartTag)->item(0);
-            
             foreach($fileData['url'] as  $key=>$locs){
                 $sitemap = $objDom->createElement("url");
                 $root->insertBefore($sitemap);
@@ -88,7 +85,6 @@ class SitemapGenerator {
                     $tagVal->appendChild($objDom->createTextNode($val));
                 }
             }
-            
             file_put_contents($filePath, $objDom->saveXML());
             
         }
