@@ -19,96 +19,10 @@ if(isset($_POST['submit'])){
     curl_close($ch);
     $data = json_decode($data,true);
 
-     $serverName = $cf->constants('serverName');
-
-    foreach($data['results'][0]['address_components']  as $address){
-        if($address['types']['0'] == 'administrative_area_level_1'){
-            $administrative_area_level_1_long_name = $cf->sanitize($address['long_name']);
-            $administrative_area_level_1_short_name = $cf->sanitize($address['short_name']);
-        }
-        if($address['types']['0'] == 'country'){
-            $country_long_name = $cf->sanitize($address['long_name']);
-            $country_short_name = $cf->sanitize($address['short_name']);
-        }
-        if($address['types']['0'] == 'postal_code'){
-            $postal_code = $cf->sanitize($address['long_name']);
-        }
-    }
-    
-    $sanitizeAddress = $cf->sanitize($data['results'][0]['formatted_address']);
-    $url = str_replace(",","",$sanitizeAddress.".html");
-
-    $db = new DbConnect();
-    
-    
-    $country = $cf->sanitize(strtolower($country_long_name.".xml"));
-    
-    $countryData = array(
-                    array('fileName'=>'sitemap.xml',
-                             'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$country")
-                                             )
-                    )
-                );
-    $state = $cf->sanitize(strtolower($administrative_area_level_1_long_name.".xml"));
-    $stateData = array(
-                    array('fileName'=>$country,
-                             'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$state")
-                                             )
-                    )
-                );
-                
-    $locationsData = array(
-                    array('fileName'=>$state,
-                             'url'=>array(  array('loc'=>"$serverName"."address/$url")
-                                             )
-                    )
-                );   
-   
-    
-    $country_id_qry = "SELECT id from countries where title like '%$country_long_name%' ";
-    $state_id_qry = "SELECT id from states where title like '%$administrative_area_level_1_long_name%' ";
-
-    $country_id_res = $db->qry_select($country_id_qry);
-    $country_id = $country_id_res['id'];
-
-    $state_id_res = $db->qry_select($state_id_qry);
-    $state_id = $state_id_res['id'];
 
     
-    $country_qry = "INSERT INTO countries (title,short_code) VALUES ('$country_long_name','$country_short_name');  ";
-    $states_qry = "INSERT INTO states(title,short_code) VALUES ('$administrative_area_level_1_long_name','$administrative_area_level_1_short_name');  ";
     
-    
-    if($country_id == ''){
-       $country_res = $db->qry_insert($country_qry);
-       $country_id = $country_res->insert_id;
-       $sg->multiLevelSitemap($countryData);
-    } 
-    if($state_id == '') {
-       $state_res = $db->qry_insert($states_qry);
-       $state_id = $state_res->insert_id;
-       $sg->multiLevelSitemap($stateData);
-    }
-    $sitemap_qry = "INSERT INTO sitemap (country_id,state_id,url) VALUES ($country_id,$state_id,'$url');  ";
-    $zipcodes_qry = "INSERT INTO zipcodes (country_id,state_id,zipcode) VALUES ($country_id,$state_id,'$postal_code')";
-    
-    $url_qry = "SELECT id from sitemap where url like '%$url%' ";
-    $url_res = $db->qry_select($url_qry);
-    if($country_id != '' && $state_id != '' && $url_res == ''){
-        $db->qry_insert($sitemap_qry);
-        $sg->singleLevelSitemap($locationsData);
-    } 
-
-    $zipcode_qry = "SELECT id from zipcodes where zipcode like '%$postal_code%' ";
-    $zipcode_res = $db->qry_select($zipcode_qry);
-    $db_zipcode_id = $url_res['id'];
-    if($country_id != '' && $state_id != '' && $db_zipcode_id == ''){
-        $db->qry_insert($zipcodes_qry);
-    }
-    
- 
-    
-    
+    $sg->save_db_sitemap($data);
     
     if(isset($data['results'][0])){
         $address = $data['results'][0]['formatted_address'];

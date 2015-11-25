@@ -1,4 +1,6 @@
+Options +FollowSymLinks
 RewriteEngine on
 RewriteBase /gmaps/
 RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^latlong/([^/.]+)/?$ latlong.php?a=$1 [NC, L]
 RewriteRule ^(.*)\.html$ $1.php  [L]

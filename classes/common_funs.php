@@ -34,8 +34,6 @@ class Commonfuns {
     
     public function sanitize($str){
          $data = trim($str);
-         $data = str_replace(" ","-",$data);
-         $data = $this->real_string($data);
          $data = filter_var($data, FILTER_SANITIZE_STRING);
          return $data;
     }

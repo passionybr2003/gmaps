@@ -1,11 +1,13 @@
 <?php 
 require_once 'common/header.php'; 
-$sg = new SitemapGenerator();
-$lat = $long = '';
-if(isset($_POST['submit'])){
-    $key = "AIzaSyBPZCNBehLrRsLGkbk9KvhXHjIP1l8D3as";
-    $address = $_POST['address'];
 
+$lat = $long = '';
+if(isset($_GET['a']) && $_GET['a'] !=''){
+    $address = trim($_GET['a']);
+    $address = str_replace("-",",",$address);
+//    $address = 'railpet,guntur,andhrapradesh,india';
+
+    $key = "AIzaSyBPZCNBehLrRsLGkbk9KvhXHjIP1l8D3as";
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($address)."&key=".$key;
     
     $ch = curl_init();
@@ -18,12 +20,10 @@ if(isset($_POST['submit'])){
     curl_close($ch);
     $data = json_decode($data,true);
     //print_r($data);
-    
+
     if(isset($data['results'][0])){
         $lat = $data['results'][0]['geometry']['location']['lat'];
         $long = $data['results'][0]['geometry']['location']['lng'];
-        
-        $sg->save_db_sitemap($data);
     } else {
         $lat = $long = '0';
     }
