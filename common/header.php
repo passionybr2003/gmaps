@@ -6,6 +6,7 @@ $fileName = basename($_SERVER['SCRIPT_NAME'],'.php');
 $title = $meta_data[$fileName]['title'];
 $description = $meta_data[$fileName]['description'];
 $keywords = $meta_data[$fileName]['keywords'];
+error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT;
 
 
 ?>

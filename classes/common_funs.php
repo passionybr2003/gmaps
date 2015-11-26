@@ -1,6 +1,6 @@
 <?php 
 class Commonfuns {
-    public function constants($param){
+    public static function constants($param){
         $constants['localhostName'] = 'http://localhost/gmaps/';
         $constants['serverName'] = 'http://www.geolatlong.com/';
         return $constants[$param];
@@ -32,7 +32,7 @@ class Commonfuns {
         require_once 'classes/zipcode.php';
     }
     
-    public function sanitize($str){
+    public static function sanitize($str){
          $data = trim($str);
          $data = filter_var($data, FILTER_SANITIZE_STRING);
          return $data;
