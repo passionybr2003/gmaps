@@ -20,7 +20,7 @@ if(isset($_GET['a']) && $_GET['a'] !=''){
             'keywords'=>'find pincode, get pincode from address,how to find zipcode,how to find postal code,how to find pincode'
         ),
         'latlong'=>array(
-            'title'=>" Lat long of $title",
+            'title'=>"Lat long of $title",
             'description'=>"Find latlong (latitude and longitude) of $title and show on google maps",
             'keywords'=>'find lat long coordinates, lat and long in google maps,get lat long from location,latlong google api,find out lat long'
         ),

@@ -1,6 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine on
-RewriteBase /gmaps/
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^latlong/([^/.]+)/?$ latlong.php?a=$1 [NC, L]
+RewriteRule ^latlong/([a-zA-Z-0-9-]+)(/|\.html)?$ latlong.php?a=$1 [NC]
 RewriteRule ^(.*)\.html$ $1.php  [L]

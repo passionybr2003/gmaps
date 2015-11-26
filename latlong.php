@@ -1,5 +1,5 @@
 <?php 
-require_once 'common/header.php'; 
+ 
 
 $lat = $long = '';
 if(isset($_GET['a']) && $_GET['a'] !=''){
@@ -28,6 +28,7 @@ if(isset($_GET['a']) && $_GET['a'] !=''){
         $lat = $long = '0';
     }
 }
+require_once 'common/header.php';
 ?>
 <h1> Geo Location</h1>
 <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">

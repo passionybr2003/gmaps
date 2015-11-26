@@ -21,10 +21,8 @@ $keywords = $meta_data[$fileName]['keywords'];
     <meta name="keywords" content=" <?php echo $keywords;?>" />
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
-
     
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
    </head>
 
   <body>

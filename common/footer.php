@@ -2,9 +2,9 @@
 
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
     
     
     <?php if($_SERVER['SERVER_NAME'] != 'localhost') { ?>
@@ -23,7 +23,7 @@
 <footer>
     <div class="container">
         <div class="text-center"> 
-            <span> &copy 2015 www.geolatlong.com All rights reserved. </span>  <a  href="sitemap.xml">sitemap</a> 
+            <span> &copy 2015 www.geolatlong.com All rights reserved. </span>  <a  href="/sitemaps/sitemap.xml">sitemap</a> 
             
         </div>
     </div>
