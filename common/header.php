@@ -1,5 +1,4 @@
 <?php
-error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT;
 error_reporting(0);
 require 'classes/common_funs.php';
 $cf = new Commonfuns();
