@@ -13,7 +13,7 @@ class Commonfuns {
     }
     
     public function dbparameters(){
-        if($_SERVER['HTTP_HOST'] == 'localhost'){
+        if($_SERVER['SERVER_NAME'] == 'localhost'){
                 define('DB_HOST','127.0.0.1');
                 define('DB_USER','root');
                 define('DB_PWD','');

@@ -17,7 +17,7 @@ class SitemapGenerator {
         $objDom = new DomDocument( '1.0' );
         foreach($sitemapData as $fileData){
             $this->createFiles($fileData['fileName'],$this->_multiLevelStartTag);
-            $filePath = $_SERVER['DOCUMENT_ROOT']. "/" . $this->_projectName . $this->_xmlFilesPath . $fileData['fileName'];
+            $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileData['fileName'];
             
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );
@@ -40,7 +40,7 @@ class SitemapGenerator {
 
     
     public function createFiles($fileName = '',$startTag = ''){
-        $filePath = $_SERVER['DOCUMENT_ROOT']. "/" . $this->_projectName . $this->_xmlFilesPath . $fileName;
+        $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileName;
         if(!file_exists($filePath)){
             fopen($filePath,'w');
             
@@ -48,7 +48,7 @@ class SitemapGenerator {
             $objDom->preserveWhiteSpace = true;
             $objDom->formatOutput = true;
             $xml = file_get_contents($filePath);
-            $objDom->loadXML( $xml, LIBXML_NOBLANKS );
+            if($xml != '') $objDom->loadXML( $xml, LIBXML_NOBLANKS );
             $objDom->encoding = 'UTF-8';
             $objDom->formatOutput = true;
             $objDom->preserveWhiteSpace = false;
@@ -73,7 +73,7 @@ class SitemapGenerator {
         foreach($sitemapData as $fileData){
             $fileData['fileName'];
             $this->createFiles($fileData['fileName'],$this->_singleLevelStartTag);
-            $filePath = $_SERVER['DOCUMENT_ROOT']. "/" . $this->_projectName . $this->_xmlFilesPath . $fileData['fileName'];
+            $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileData['fileName'];
             
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );
@@ -137,7 +137,7 @@ class SitemapGenerator {
 
         $locationsData = array(
                         array('fileName'=>$state,
-                                 'url'=>array(  array('loc'=>"$serverName"."address/$url")
+                                 'url'=>array(  array('loc'=>"$serverName"."latlong/$url")
                                                  )
                         )
                     );   
