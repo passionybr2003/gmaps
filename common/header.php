@@ -1,4 +1,6 @@
-<?php 
+<?php
+error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT;
+error_reporting(0);
 require 'classes/common_funs.php';
 $cf = new Commonfuns();
 require_once 'meta_file.php';
@@ -6,7 +8,7 @@ $fileName = basename($_SERVER['SCRIPT_NAME'],'.php');
 $title = $meta_data[$fileName]['title'];
 $description = $meta_data[$fileName]['description'];
 $keywords = $meta_data[$fileName]['keywords'];
-error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT;
+
 
 
 ?>
