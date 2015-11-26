@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(1);
 require 'classes/common_funs.php';
 $cf = new Commonfuns();
 require_once 'meta_file.php';
