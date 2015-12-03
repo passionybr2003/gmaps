@@ -42,10 +42,7 @@ if(isset($_POST['submit'])){
         <li>The third digit represents sorting district</li>
         <li>The last three digits represents post office</li>
       </ol>
-
     </p>
-     
-     
 </div>   
    </div>
    <div class="col-sm-2"> </div>
