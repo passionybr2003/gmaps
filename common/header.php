@@ -50,7 +50,7 @@ $keywords = $meta_data[$fileName]['keywords'];
             <li class="<?php echo ($fileName == 'index') ? 'active' : '';?>"><a href="index.html">Home</a></li>
             <li class="<?php echo ($fileName == 'reverse-geo-coding') ? 'active' : '';?>"><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
             <li class="<?php echo ($fileName == 'pincode') ? 'active' : '';?>"><a href="pincode.html">Pincodes</a></li>
-            <li class="<?php echo ($fileName == 'image-resize') ? 'active' : '';?>"><a href="image-compressor.html">Image Resize</a></li>
+            <li class="<?php echo ($fileName == 'image-compressor') ? 'active' : '';?>"><a href="image-compressor.html">Image Resize</a></li>
             <!--
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
