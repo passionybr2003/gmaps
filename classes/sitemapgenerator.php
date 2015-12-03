@@ -123,14 +123,14 @@ class SitemapGenerator {
         $country = Commonfuns::sanitize(strtolower($country_long_name.".xml"));
         $countryData = array(
                         array('fileName'=>'sitemap.xml',
-                                 'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$country")
+                                 'sitemap'=>array(  array('loc'=>$serverName."sitemaps/$country")
                                                  )
                         )
                     );
         $state = Commonfuns::sanitize(strtolower($administrative_area_level_1_long_name.".xml"));
         $stateData = array(
                         array('fileName'=>$country,
-                                 'sitemap'=>array(  array('loc'=>"$serverName.sitemaps/$state")
+                                 'sitemap'=>array(  array('loc'=>$serverName."sitemaps/$state")
                                                  )
                         )
                     );
@@ -161,11 +161,14 @@ class SitemapGenerator {
            $country_res = $db->qry_insert($country_qry);
            $country_id = $country_res->insert_id;
            $this->multiLevelSitemap($countryData);
+           
         } 
+       
         if($state_id == '') {
            $state_res = $db->qry_insert($states_qry);
            $state_id = $state_res->insert_id;
-           $this->multiLevelSitemap($stateData);
+            $this->multiLevelSitemap($stateData);
+          
         }
         $sitemap_qry = "INSERT INTO sitemap (country_id,state_id,url) VALUES ($country_id,$state_id,'$url');  ";
         $zipcodes_qry = "INSERT INTO zipcodes (country_id,state_id,zipcode) VALUES ($country_id,$state_id,'$postal_code')";
@@ -174,9 +177,11 @@ class SitemapGenerator {
         $url_res = $db->qry_select($url_qry);
         if($country_id != '' && $state_id != '' && $url_res == ''){
             $db->qry_insert($sitemap_qry);
-            $this->singleLevelSitemap($locationsData);
+             $this->singleLevelSitemap($locationsData);
         } 
-
+        
+       
+       
         $zipcode_qry = "SELECT id from zipcodes where zipcode like '%$postal_code%' ";
         $zipcode_res = $db->qry_select($zipcode_qry);
         $db_zipcode_id = $url_res['id'];

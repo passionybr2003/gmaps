@@ -3,6 +3,7 @@ class Commonfuns {
     public static function constants($param){
         $constants['localhostName'] = 'http://localhost/gmaps/';
         $constants['serverName'] = 'http://www.geolatlong.com/';
+        
         return $constants[$param];
     }
     
@@ -18,11 +19,15 @@ class Commonfuns {
                 define('DB_USER','root');
                 define('DB_PWD','');
                 define('DB_NAME','gmaps');
+                define('ROOT_IMG_PATH','c:/xampp/htdocs/gmaps');
+                define('SRC_IMG_PATH','/image_comp_files/src/');
+                define('DEST_IMG_PATH','/image_comp_files/dest/');
         } else {
                 define('DB_HOST','127.0.0.1');
                 define('DB_USER','u162921388_raghu');
                 define('DB_PWD','Anemone$123$');
                 define('DB_NAME','u162921388_gmaps');
+                define('ROOT_IMG_PATH','c:/xampp/htdocs/gmaps');
         }
     }
     
@@ -30,6 +35,7 @@ class Commonfuns {
         require_once 'classes/DbConnect.php';
         require_once 'classes/sitemapgenerator.php';
         require_once 'classes/zipcode.php';
+        require_once 'classes/ImageCompression.php';
     }
     
     public static function sanitize($str){

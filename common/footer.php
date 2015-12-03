@@ -1,10 +1,14 @@
    </div> <!-- /container -->
 
    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script async src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script async src=" /js/jquery.validate.js" type="text/javascript"></script>
+    <script async src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script async src=" /js/user_validations.js" type="text/javascript"></script>
+    
     
     
     <?php if($_SERVER['SERVER_NAME'] != 'localhost') { ?>

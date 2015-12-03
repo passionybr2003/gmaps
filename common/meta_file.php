@@ -24,5 +24,10 @@ if(isset($_GET['a']) && $_GET['a'] !=''){
             'description'=>"Find latlong (latitude and longitude) of $title and show on google maps",
             'keywords'=>'find lat long coordinates, lat and long in google maps,get lat long from location,latlong google api,find out lat long'
         ),
+        'image-compressor'=>array(
+            'title'=>"Compress and resize jpeg images",
+            'description'=>"Compress or optimize the size of jpeg ,png, jpg images  with out quality loss",
+            'keywords'=>'image compressor, optimize images, reduce image size, optimize image quality'
+        ),
     );
 ?>

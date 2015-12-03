@@ -2,5 +2,5 @@ Options +FollowSymLinks
 RewriteEngine on
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^latlong/([a-zA-Z-0-9-]+)(/|\.html)?$ latlong.php?a=$1 [NC]
+RewriteRule ^latlong/([a-zA-Z-0-9-]+)(/|\.html)$ latlong.php?a=$1 [NC,L]
 RewriteRule ^(.*)\.html$ $1.php  [L]

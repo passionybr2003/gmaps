@@ -15,7 +15,7 @@ $keywords = $meta_data[$fileName]['keywords'];
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo $title;?></title>
+    <title>geolatlong.com :: <?php echo $title;?></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,12 +25,16 @@ $keywords = $meta_data[$fileName]['keywords'];
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-default .navbar-nav>li>a {color:white;}
+        .active>a {background-color: #155878 !important;color:white !important;}
+    </style>
    </head>
 
   <body>
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important;">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important;background-color: #36ade4;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -46,6 +50,7 @@ $keywords = $meta_data[$fileName]['keywords'];
             <li class="<?php echo ($fileName == 'index') ? 'active' : '';?>"><a href="index.html">Home</a></li>
             <li class="<?php echo ($fileName == 'reverse-geo-coding') ? 'active' : '';?>"><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
             <li class="<?php echo ($fileName == 'pincode') ? 'active' : '';?>"><a href="pincode.html">Pincodes</a></li>
+            <li class="<?php echo ($fileName == 'image-resize') ? 'active' : '';?>"><a href="image-compressor.html">Image Resize</a></li>
             <!--
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
@@ -61,9 +66,6 @@ $keywords = $meta_data[$fileName]['keywords'];
               </ul>
             </li>
             -->
-            
-            
-            
           </ul>
            
         </div><!--/.nav-collapse -->
@@ -71,4 +73,4 @@ $keywords = $meta_data[$fileName]['keywords'];
     </nav>
 
 
-    <div class="container" style="background-color: #eee;">
+    <div class="container" style="background-color: #D4D8D1;">

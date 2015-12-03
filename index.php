@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 <h1> Geo Location</h1>
-<form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+<form id="latlong-form" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
   <div class="form-group">
     <div class="col-sm-4">
             <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" value="<?php if(isset($_POST['address'] )){echo $_POST['address'];} ?>">
