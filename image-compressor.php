@@ -28,14 +28,15 @@ if(isset($_POST['submit'])){
     <button type="submit" class="btn btn-default" name="submit">Upload</button>
   </div>
 </form>
-<?php 
-    if(isset($compressed_img)  && $compressed_img != ''){
-        echo "<a class='btn btn-primary' href='image_download.php?file=$compressed_img'> Download Optimized Image </a>";
-    }
-?>
+
 <div class="col-sm-12">
     <div class="col-sm-10"> 
         <div class="desc1">
+            <?php 
+                if(isset($compressed_img)  && $compressed_img != ''){
+                    echo "<a class='btn btn-primary' href='image_download.php?file=$compressed_img'> Download Optimized Image </a>";
+                }
+            ?>
             <h3>Image Compression </h3>
             <p>
                Image compression is method of reducing the size in terms of bytes of photo. By reducing size of images, we can attach in mails, 

@@ -27,7 +27,9 @@ class Commonfuns {
                 define('DB_USER','u162921388_raghu');
                 define('DB_PWD','Anemone$123$');
                 define('DB_NAME','u162921388_gmaps');
-                define('ROOT_IMG_PATH','c:/xampp/htdocs/gmaps');
+                define('ROOT_IMG_PATH',$_SERVER['DOCUMENT_ROOT']);
+                define('SRC_IMG_PATH','/image_comp_files/src/');
+                define('DEST_IMG_PATH','/image_comp_files/dest/');
         }
     }
     
