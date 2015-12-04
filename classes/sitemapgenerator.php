@@ -17,7 +17,7 @@ class SitemapGenerator {
         $objDom = new DomDocument( '1.0' );
         foreach($sitemapData as $fileData){
             $this->createFiles($fileData['fileName'],$this->_multiLevelStartTag);
-            $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileData['fileName'];
+            $filePath = SITEMAP_PATH . $fileData['fileName'];
             
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );
@@ -40,7 +40,7 @@ class SitemapGenerator {
 
     
     public function createFiles($fileName = '',$startTag = ''){
-        $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileName;
+        $filePath = SITEMAP_PATH . $fileName;
         if(!file_exists($filePath)){
             fopen($filePath,'w');
             
@@ -73,7 +73,7 @@ class SitemapGenerator {
         foreach($sitemapData as $fileData){
             $fileData['fileName'];
             $this->createFiles($fileData['fileName'],$this->_singleLevelStartTag);
-            $filePath = $_SERVER['DOCUMENT_ROOT']. $this->_xmlFilesPath . $fileData['fileName'];
+            $filePath = SITEMAP_PATH . $fileData['fileName'];
             
             $xml = file_get_contents($filePath);
             $objDom->loadXML( $xml, LIBXML_NOBLANKS );

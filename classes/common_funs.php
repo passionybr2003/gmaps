@@ -22,6 +22,7 @@ class Commonfuns {
                 define('ROOT_IMG_PATH','c:/xampp/htdocs/gmaps');
                 define('SRC_IMG_PATH','/image_comp_files/src/');
                 define('DEST_IMG_PATH','/image_comp_files/dest/');
+                define('SITEMAP_PATH',$_SERVER['DOCUMENT_ROOT'].'sitemaps/');
         } else {
                 define('DB_HOST','127.0.0.1');
                 define('DB_USER','u162921388_raghu');
@@ -30,6 +31,7 @@ class Commonfuns {
                 define('ROOT_IMG_PATH',$_SERVER['DOCUMENT_ROOT']);
                 define('SRC_IMG_PATH','/image_comp_files/src/');
                 define('DEST_IMG_PATH','/image_comp_files/dest/');
+                define('SITEMAP_PATH',$_SERVER['DOCUMENT_ROOT'].'/sitemaps/');
         }
     }
     
