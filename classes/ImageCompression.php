@@ -6,6 +6,7 @@ class ImageCompression {
    
    function save_image($imageData){
        $res = $src = $dest = $quality = $localhostPath = '';
+       print_r($imageData);
        $check = getimagesize($imageData["img"]["tmp_name"]);
        $rootPath = ROOT_IMG_PATH;
        $srcImgPath = SRC_IMG_PATH;
@@ -14,9 +15,9 @@ class ImageCompression {
        $imageFileType = pathinfo($imageData["img"]["name"],PATHINFO_EXTENSION);
        if(!$check) {
             $res = "File is not an image.";
-       } else if ($imageData["img"]["size"] > 1000000) {
+       } else if ($imageData["img"]["size"] > 100000000) {
             $res = "Sorry, your file is too large.";
-       } else if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+       } else if($imageFileType != "jpg" && $imageFileType != "png" && strtolower($imageFileType) != "jpeg" && $imageFileType != "gif" ) {
             $res = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
        } else {
             if (move_uploaded_file($imageData["img"]["tmp_name"], $rootPath.$srcImgPath.basename($imageData["img"]["name"]))) {

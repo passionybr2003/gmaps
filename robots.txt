@@ -1,0 +1,3 @@
+Sitemap: http://www.geolatlong.com/sitemaps/sitemap.xml
+User-agent: *
+Disallow: /classes/

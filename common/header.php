@@ -21,6 +21,7 @@ $keywords = $meta_data[$fileName]['keywords'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=" <?php echo $description;?>" />
     <meta name="keywords" content=" <?php echo $keywords;?>" />
+    <meta name="google-site-verification" content="i-qzRiaL1TsdsXF8N6O4LtKZhTKK2lhsakuc5zw_iD4" />
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     
@@ -43,7 +44,7 @@ $keywords = $meta_data[$fileName]['keywords'];
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">GetLatLong.com</a>
+            <a class="navbar-brand" href="/">Geolatlong.com</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

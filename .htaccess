@@ -4,3 +4,5 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^latlong/([a-zA-Z-0-9-]+)(/|\.html)$ latlong.php?a=$1 [NC,L]
 RewriteRule ^(.*)\.html$ $1.php  [L]
+ErrorDocument 404 /index.php
+RewriteCond %{REQUEST_FILENAME} !^(google2dd1e40fd72ee1c1.html)$

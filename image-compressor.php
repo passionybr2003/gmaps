@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
      if($resp['res'] == 1 ){
          $compressed_img = $resp['dest_img_name'];
      } else {
-         $error = $resp['res'];
+         $compressed_img = $error = $resp['res'];
      }
 }
 ?>
