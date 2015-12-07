@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
      if($resp['res'] == 1 ){
          $compressed_img = $resp['dest_img_name'];
      } else {
-         $compressed_img = $error = $resp['res'];
+         $error  = $resp['res'];
      }
 }
 ?>
@@ -35,6 +35,8 @@ if(isset($_POST['submit'])){
             <?php 
                 if(isset($compressed_img)  && $compressed_img != ''){
                     echo "<a class='btn btn-primary' href='image_download.php?file=$compressed_img'> Download Optimized Image </a>";
+                } else if(isset($error) && $error != ''){
+                    echo "<div class='info info-warning'>$error</div>";
                 }
             ?>
             <h3>Image Compression </h3>
