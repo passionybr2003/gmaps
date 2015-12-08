@@ -6,7 +6,6 @@ class ImageCompression {
    
    function save_image($imageData){
        $res = $src = $dest = $quality = $localhostPath = '';
-       print_r($imageData);
        $check = getimagesize($imageData["img"]["tmp_name"]);
        $rootPath = ROOT_IMG_PATH;
        $srcImgPath = SRC_IMG_PATH;

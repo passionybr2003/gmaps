@@ -27,19 +27,21 @@ if(isset($_POST['submit'])){
 }
 ?>
 <h1>Reverse Geo Location</h1>
-<form id="reverse-geo" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-    <div class="form-group">
-        <div class="col-sm-4">
-            <input type="text" class="form-control" id="lat" name="lat" placeholder="Enter latitude" value="<?php if(isset($lat)){echo $lat;} ?>">
+<div class="row" style="margin-bottom: 10px;">
+    <form id="reverse-geo" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="lat" name="lat" placeholder="Enter latitude" value="<?php if(isset($lat)){echo $lat;} ?>">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="long" name="long" placeholder="Enter longitude" value="<?php if(isset($long)){echo $long;} ?>">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-default" name="submit">Get Address</button>
+            </div>    
         </div>
-        <div class="col-sm-4">
-            <input type="text" class="form-control" id="long" name="long" placeholder="Enter longitude" value="<?php if(isset($long)){echo $long;} ?>">
-        </div>
-        <div class="col-md-4">
-            <button type="submit" class="btn btn-default" name="submit">Get Address</button>
-        </div>    
-    </div>
-</form>
+    </form>
+</div>
 <?php 
     if(isset($address)){
        $address =  ($address == '' )? 'No results found': $address;

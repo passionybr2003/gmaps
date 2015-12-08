@@ -18,13 +18,13 @@ $keywords = $meta_data[$fileName]['keywords'];
     <title>geolatlong.com :: <?php echo $title;?></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" <?php echo $description;?>" />
     <meta name="keywords" content=" <?php echo $keywords;?>" />
     <meta name="google-site-verification" content="i-qzRiaL1TsdsXF8N6O4LtKZhTKK2lhsakuc5zw_iD4" />
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    
+     <link rel="icon" href="/images/logo.jpg" type="image/jpg" > 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .navbar-default .navbar-nav>li>a {color:white;}

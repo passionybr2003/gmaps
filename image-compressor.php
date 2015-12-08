@@ -15,22 +15,24 @@ if(isset($_POST['submit'])){
 }
 ?>
 <h1> Optimize Image size</h1>
-<form id="img-resize" role="form" method="post"  action="<?php echo $_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
-  <div class="form-group">
-    <div class="col-sm-4">
-        <input type="file" class="form-control" id="img" name="img" />
-    </div>
-     <div class="col-sm-4">
-         <input type="text" placeholder="Enter quality" class="form-control" id="quality" name="quality" value="<?php $q = $_POST['quality'];echo (isset($q))?$q:''; ?>"/>
-    </div>  
-  </div>
-   <div class="form-group">
-    <button type="submit" class="btn btn-default" name="submit">Upload</button>
-  </div>
-</form>
-
+<div class="row" style="margin-bottom: 10px;">
+    <form id="img-resize" role="form" method="post"  action="<?php echo $_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <input type="file" class="form-control" id="img" name="img" />
+            </div>
+             <div class="col-sm-4">
+                 <input type="text" placeholder="Enter quality" class="form-control" id="quality" name="quality" value="<?php $q = $_POST['quality'];echo (isset($q))?$q:''; ?>"/>
+            </div>  
+        </div>
+         <div class="form-group">
+            <div class="col-md-4"> 
+                <button type="submit" class="btn btn-default" name="submit">Upload</button>
+            </div>  
+        </div>
+    </form>
+</div>
 <div class="col-sm-12">
-    <div class="col-sm-10"> 
         <div class="desc1">
             <?php 
                 if(isset($compressed_img)  && $compressed_img != ''){
@@ -48,12 +50,8 @@ if(isset($_POST['submit'])){
                 By using this site, user can get the optimize image with his choice of <b> quality (10-100)</b>.
             </p>
         </div>   
-    </div>
-    <div class="col-sm-2"> </div>
     
 </div>
-
-
 
 <?php require_once 'common/footer.php'; ?> 
 
