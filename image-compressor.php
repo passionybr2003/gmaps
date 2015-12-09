@@ -56,7 +56,4 @@ if(isset($_POST['submit'])){
 <?php require_once 'common/footer.php'; ?> 
 
 
-<script type="text/javascript">
-var input = (document.getElementById( "address"));
-var autocomplete = new google.maps.places.Autocomplete(input);
-</script>
+ 

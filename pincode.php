@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
       </div>
     </form>
 </div>
-<div   style="min-height: 400px;"> 
+<div   > 
         <?php 
            if(isset($res) && $res != ''){
                echo $res;

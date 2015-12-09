@@ -7,9 +7,6 @@ $fileName = basename($_SERVER['SCRIPT_NAME'],'.php');
 $title = $meta_data[$fileName]['title'];
 $description = $meta_data[$fileName]['description'];
 $keywords = $meta_data[$fileName]['keywords'];
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -24,18 +21,18 @@ $keywords = $meta_data[$fileName]['keywords'];
     <meta name="google-site-verification" content="i-qzRiaL1TsdsXF8N6O4LtKZhTKK2lhsakuc5zw_iD4" />
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-     <link rel="icon" href="/images/logo.jpg" type="image/jpg" > 
+    <link rel="icon" href="/images/favicon.ico" > 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar-default .navbar-nav>li>a {color:white;}
-        .active>a {background-color: #155878 !important;color:white !important;}
-    </style>
+    <link href="/css/user.css" rel="stylesheet">
+    
+    
+    
    </head>
 
   <body>
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important;background-color: #36ade4;">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important;background-color: #46a8bf;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +41,7 @@ $keywords = $meta_data[$fileName]['keywords'];
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="/">Geolatlong.com</a>
+            <a class="" href="/"><img src="/images/ws1.png" /></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -72,6 +69,5 @@ $keywords = $meta_data[$fileName]['keywords'];
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-
-    <div class="container" style="background-color: #D4D8D1;">
+    <div style="background-color: #f3f3f3;"> 
+    <div class="container main-div" style="min-height: 550px;">

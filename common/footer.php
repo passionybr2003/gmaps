@@ -1,5 +1,5 @@
    </div> <!-- /container -->
-
+</div>
    
     <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script async src="/js/bootstrap.min.js"></script>
@@ -8,6 +8,7 @@
     <script async src=" /js/jquery.validate.js" type="text/javascript"></script>
     <script async src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
     <script async src=" /js/user_validations.js" type="text/javascript"></script>
+    <script async src=" /js/user.js" type="text/javascript"></script>
     
     
     
