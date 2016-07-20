@@ -79,4 +79,49 @@ $(function(){
             
         }
     });
+    
+    $("#md-gen").validate({
+        rules: {
+            plain_url: {
+                required: true
+            } 
+        },
+        messages: {
+            plain_url: {
+                required: "Enter text"
+            } 
+            
+        }
+    });
+    $("#md-gen,#base-gen,#sha-gen,#url-enc-dec,#json-beauty").validate({
+        rules: {
+            plain_url: {
+                required: true
+            } 
+        },
+        messages: {
+            plain_url: {
+                required: "Enter text"
+            } 
+            
+        }
+    });
+    
+    $('#beautify').on('click',function(){
+        var inPut = document.getElementById('plain_url').value;
+        if(inPut !== ''){
+            $('.errMsg').html("");
+            try {
+                var json = JSON.parse(inPut);
+                $("#jjson").jJsonViewer(json);
+            }
+            catch(err) {
+                $(".errMsg").html(err.message);
+            } 
+        } else {
+            $('.errMsg').html("Enter text");
+        }
+    });   
+    
+    
 });

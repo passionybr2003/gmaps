@@ -29,5 +29,32 @@ if(isset($_GET['a']) && $_GET['a'] !=''){
             'description'=>"Compress or optimize the size of jpeg ,png, jpg images  with out quality loss",
             'keywords'=>'image compressor, optimize images, reduce image size, optimize image quality'
         ),
+        'online-md5-generator'=>array(
+            'title'=>'Generate md5 online',
+            'description'=>'To encrypt the message using md5() function in php',
+            'keywords'=>'md5(), md5 generator in php, md5() in php, encrypt md5, md5 php decrypt, php md5 decrypt online'
+        ),
+        'base64-encode-decode'=>array(
+            'title'=>'Online Base64 encode and decode',
+            'description'=>'To encrypt the message with base64_encode and decrypt the messagge with base64_decode using php online',
+            'keywords'=>'base64 encode php, base64 decode php,base64 decode online, base64 encode online'
+        ),
+        'online-sha1-generator'=>array(
+            'title'=>'Online SHA1 Encryption',
+            'description'=>'To encrypt the message using sha1() function in php online',
+            'keywords'=>'sha1() in php, generate sha1 in php, encrypt sha1 php'
+        ),
+        'url-encode-decode'=>array(
+            'title'=>"Online URL Encode and Decode",
+            'description'=>'online Encode or decode the given url ',
+            'keywords'=>'php urlencode online, php urldecode online, url encode or decode in php'
+        ),
+        'online-json-beautifier'=>array(
+            'title'=>"Online JSON Beautifier",
+            'description'=>'Make plain json string into user readable format or beautify',
+            'keywords'=>'json beautifier online,json formatter php, php json beautifier'
+        )
+        
+        
     );
 ?>

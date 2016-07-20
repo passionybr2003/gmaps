@@ -24,7 +24,7 @@ $keywords = $meta_data[$fileName]['keywords'];
     <link rel="icon" href="/images/favicon.ico" > 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/user.css" rel="stylesheet">
-    
+    <link href="/css/jjsonviewer.css" rel="stylesheet">
     
     
    </head>
@@ -45,10 +45,14 @@ $keywords = $meta_data[$fileName]['keywords'];
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="<?php echo ($fileName == 'index') ? 'active' : '';?>"><a href="index.html">Home</a></li>
-            <li class="<?php echo ($fileName == 'reverse-geo-coding') ? 'active' : '';?>"><a href="reverse-geo-coding.html">Reverse Geo Location</a></li>
-            <li class="<?php echo ($fileName == 'pincode') ? 'active' : '';?>"><a href="pincode.html">Pincodes</a></li>
+            <li class="<?php echo ($fileName == 'online-md5-generator') ? 'active' : '';?>"><a href="online-md5-generator.html">MD5 Generator</a></li>
+            <li class="<?php echo ($fileName == 'base64-encode-decode') ? 'active' : '';?>"><a href="base64-encode-decode.html">Base64 Encode / Decode</a></li>
+            <li class="<?php echo ($fileName == 'online-sha1-generator') ? 'active' : '';?>"><a href="online-sha1-generator.html">SHA1 Generator</a></li>
+            <li class="<?php echo ($fileName == 'url-encode-decode') ? 'active' : '';?>"><a href="url-encode-decode.html">URL Encode/Decode </a></li>
+            <li class="<?php echo ($fileName == 'online-json-beautifier') ? 'active' : '';?>"><a href="online-json-beautifier.html">JSON Beautifier</a></li>
             <li class="<?php echo ($fileName == 'image-compressor') ? 'active' : '';?>"><a href="image-compressor.html">Image Resize</a></li>
+            <!--<li class="<?php //echo ($fileName == 'create-pdf') ? 'active' : '';?>"><a href="create-pdf.html">Create PDF</a></li>-->
+            <!--<li class="<?php // echo ($fileName == 'pincode') ? 'active' : '';?>"><a href="pincode.html">Pincodes</a></li>-->
             <!--
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">

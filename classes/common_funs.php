@@ -40,6 +40,7 @@ class Commonfuns {
         require_once 'classes/sitemapgenerator.php';
         require_once 'classes/zipcode.php';
         require_once 'classes/ImageCompression.php';
+        require_once 'classes/PdfCreator.php';
     }
     
     public static function sanitize($str){

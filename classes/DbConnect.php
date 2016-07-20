@@ -4,7 +4,7 @@ class DbConnect {
 	public $con = '';
 	public function __construct(){
 		
-		$DBServer = DB_HOST;
+		echo "--".$DBServer = DB_HOST;
 		$DBUser   = DB_USER;
 		$DBPass   = DB_PWD;
 		$DBName   = DB_NAME;

@@ -3,6 +3,8 @@
    
     <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script async src="/js/bootstrap.min.js"></script>
+    <script async src="/js/jjsonviewer.js"></script>
+    
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script async src="/js/ie10-viewport-bug-workaround.js"></script>
     <script async src=" /js/jquery.validate.js" type="text/javascript"></script>

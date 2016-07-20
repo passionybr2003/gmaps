@@ -43,6 +43,9 @@ if(isset($_POST['submit'])){
            </div>
      </div>     
     </form>
+    <div>
+        <a href="reverse-geo-coding.html">Reverse Geo Location </a>
+    </div>
 </div>
 <?php 
     if(isset($lat) && isset($long) && $lat != ''){
